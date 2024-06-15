@@ -14,10 +14,12 @@ for (let index = 0; index < 16; index++) {
     }
 }
 
-pixel.addEventListener("hover", changeBackgroundColor);
+pixel.addEventListener("mouseenter", changeBackgroundColor);
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
     // it is triggered by hovering the cursor over the cell
-    let target = event.target
+    let target = event.target;
+    target.style.cssText = "background-color: black;";
+
 }
