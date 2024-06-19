@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-const pixel = document.querySelector(".container div div")
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -11,15 +10,19 @@ for (let index = 0; index < 16; index++) {
     for (let index = 0; index < 16; index++) {
         const lineDiv = document.createElement("div");
         columnDiv.appendChild(lineDiv);
-    }
+        }
 }
 
-pixel.addEventListener("mouseenter", changeBackgroundColor);
+const containerlol = document.querySelector(".container div");
+const pixels = document.querySelectorAll(".container div div");
+// pixel.style = "background-color: black;";
+
+pixels.forEach((e) => {e.addEventListener("mouseenter", changeBackgroundColor)});
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
     // it is triggered by hovering the cursor over the cell
     let target = event.target;
-    target.style.cssText = "background-color: black;";
+    target.style = "background-color: black;";
 
 }
