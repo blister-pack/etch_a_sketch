@@ -15,7 +15,6 @@ for (let index = 0; index < 16; index++) {
 
 const containerlol = document.querySelector(".container div");
 const pixels = document.querySelectorAll(".container div div");
-// pixel.style = "background-color: black;";
 
 pixels.forEach((e) => {e.addEventListener("mouseenter", changeBackgroundColor)});
 
