@@ -18,7 +18,7 @@ for (let index = 0; index < 16; index++) {
 
 const pixels = document.querySelectorAll(".container div div");
 
-pixels.forEach((e) => {e.addEventListener("mouseenter", changeBackgroundColor)});
+pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
@@ -34,6 +34,8 @@ function changeNumberOfPixels(pixelNumber = 16) {
 
     // remove children
     // replace with new grid
+
+    
     
     for (let index = 0; index < pixelNumber; index++) {
         // 16*16 grid creation

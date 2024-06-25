@@ -10,8 +10,8 @@ body {
 .container {
   display: flex;
   justify-content: center;
-  height: 100vh;
-  width: 100vh;
+  height: 90vh;
+  width: 90vh;
   /* why don't the squares expand? */
 }
 
