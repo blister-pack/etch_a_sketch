@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
 
+sizeChangeButton.addEventListener("click", changeNumberOfPixels);
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -27,8 +28,23 @@ function changeBackgroundColor(event) {
 
 }
 
-function changeNumberOfPixels(pixelNumber) {
+function changeNumberOfPixels(pixelNumber = 16) {
     // this function changes the number of pixels on the etch-a-sketch
     // the minimum is one and the maximum is 100
+
+    // remove children
+    // replace with new grid
     
+    for (let index = 0; index < pixelNumber; index++) {
+        // 16*16 grid creation
+        // each of these divs is the start of a column
+        // they encapsulate each column
+        const columnDiv = document.createElement("div");
+        container.appendChild(columnDiv);
+        
+        for (let index = 0; index < 16; index++) {
+            const lineDiv = document.createElement("div");
+            columnDiv.appendChild(lineDiv);
+            }
+    }
 }
