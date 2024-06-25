@@ -1,4 +1,6 @@
 const container = document.querySelector(".container");
+const sizeChangeButton = document.querySelector("button.sizeChange");
+
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -13,7 +15,6 @@ for (let index = 0; index < 16; index++) {
         }
 }
 
-const containerlol = document.querySelector(".container div");
 const pixels = document.querySelectorAll(".container div div");
 
 pixels.forEach((e) => {e.addEventListener("mouseenter", changeBackgroundColor)});
@@ -24,4 +25,10 @@ function changeBackgroundColor(event) {
     let target = event.target;
     target.style = "background-color: black;";
 
+}
+
+function changeNumberOfPixels(pixelNumber) {
+    // this function changes the number of pixels on the etch-a-sketch
+    // the minimum is one and the maximum is 100
+    
 }
