@@ -1,7 +1,7 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
 
-sizeChangeButton.addEventListener("click", changeNumberOfPixels);
+sizeChangeButton.addEventListener("onclick", changeNumberOfPixels);
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -25,7 +25,6 @@ function changeBackgroundColor(event) {
     // it is triggered by hovering the cursor over the cell
     let target = event.target;
     target.style = "background-color: black;";
-
 }
 
 function changeNumberOfPixels(pixelNumber = 16) {
@@ -34,7 +33,6 @@ function changeNumberOfPixels(pixelNumber = 16) {
 
     // remove children
     // replace with new grid
-
     
     
     for (let index = 0; index < pixelNumber; index++) {
@@ -47,6 +45,13 @@ function changeNumberOfPixels(pixelNumber = 16) {
         for (let index = 0; index < 16; index++) {
             const lineDiv = document.createElement("div");
             columnDiv.appendChild(lineDiv);
-            }
+        }
     }
 }
+
+const containersToRemove = document.querySelectorAll(".container div")
+console.log(containersToRemove);
+containersToRemove.forEach((cont) => { cont.removeChild("div") })
+
+//doesn't work
+
