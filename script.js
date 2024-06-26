@@ -1,7 +1,11 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
+console.log(sizeChangeButton);
 
-sizeChangeButton.addEventListener("onclick", changeNumberOfPixels);
+sizeChangeButton.addEventListener("click", () => {
+    removeGrid();
+    changeNumberOfPixels(prompt("gib pixels"));
+});
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -49,9 +53,10 @@ function changeNumberOfPixels(pixelNumber = 16) {
     }
 }
 
-const containersToRemove = document.querySelectorAll(".container div")
-console.log(containersToRemove);
-containersToRemove.forEach((cont) => { cont.removeChild("div") })
 
-//doesn't work
+function removeGrid() {
+    container.remove();
+    const container = document.createElement("div");
+    container.classList.add("container");
+}
 
