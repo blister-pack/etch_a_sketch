@@ -4,8 +4,9 @@ console.log(sizeChangeButton);
 
 sizeChangeButton.addEventListener("click", () => {
     removeGrid();
-    changeNumberOfPixels(prompt("gib pixels"));
+    changeNumberOfPixels(parseInt(prompt("How many pixels per side?")));
 });
+
 
 for (let index = 0; index < 16; index++) {
     // 16*16 grid creation
@@ -21,8 +22,8 @@ for (let index = 0; index < 16; index++) {
 }
 
 const pixels = document.querySelectorAll(".container div div");
-
 pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
+
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
@@ -46,7 +47,7 @@ function changeNumberOfPixels(pixelNumber = 16) {
         const columnDiv = document.createElement("div");
         container.appendChild(columnDiv);
         
-        for (let index = 0; index < 16; index++) {
+        for (let index = 0; index < pixelNumber; index++) {
             const lineDiv = document.createElement("div");
             columnDiv.appendChild(lineDiv);
         }
