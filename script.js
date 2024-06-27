@@ -38,6 +38,12 @@ function changeNumberOfPixels(pixelNumber = 16) {
 
     // remove children
     // replace with new grid
+
+    if (pixelNumber < 1) {
+        return alert("Your number is too low, try again")
+    } else if (pixelNumber > 100) {
+        return alert("Your number is way too high, go lower than 100!")
+    }
     
     
     for (let index = 0; index < pixelNumber; index++) {
@@ -52,6 +58,10 @@ function changeNumberOfPixels(pixelNumber = 16) {
             columnDiv.appendChild(lineDiv);
         }
     }
+    
+    const pixels = document.querySelectorAll(".container div div");
+    pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
+
 }
 
 
