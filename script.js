@@ -22,8 +22,9 @@ for (let index = 0; index < 16; index++) {
 }
 
 const pixels = document.querySelectorAll(".container div div");
-pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
+// pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
 
+container.addEventListener("mouseenter", changeBackgroundColor);
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
