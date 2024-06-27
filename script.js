@@ -1,6 +1,5 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
-console.log(sizeChangeButton);
 
 sizeChangeButton.addEventListener("click", () => {
     removeGrid();
@@ -20,7 +19,6 @@ function changeNumberOfPixels(pixelNumber = 16) {
         return alert("Your number is way too high, go lower than 100!")
     }
     
-    
     for (let index = 0; index < pixelNumber; index++) {
         // 16*16 grid creation
         // each of these divs is the start of a column
@@ -34,13 +32,13 @@ function changeNumberOfPixels(pixelNumber = 16) {
             columnDiv.appendChild(lineDiv);
         }
     }
+
     container.addEventListener("mouseenter", changeBackgroundColor, true);
     // https://stackoverflow.com/questions/50177348/mouseenter-delegation-using-vanilla-javascript
     // this way it works on the capturing phase - true as third argument
     // otherwise the whole container would turn black
     // does this also work without the .pixel class? since it's on capture, does it start lower?
 }
-
 
 function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
