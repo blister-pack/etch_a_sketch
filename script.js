@@ -7,35 +7,9 @@ sizeChangeButton.addEventListener("click", () => {
     changeNumberOfPixels(parseInt(prompt("How many pixels per side?")));
 });
 
-
-for (let index = 0; index < 16; index++) {
-    // 16*16 grid creation
-    // each of these divs is the start of a column
-    // they encapsulate each column
-    const columnDiv = document.createElement("div");
-    container.appendChild(columnDiv);
-    
-    for (let index = 0; index < 16; index++) {
-        const lineDiv = document.createElement("div");
-        columnDiv.appendChild(lineDiv);
-        }
-}
-
-const pixels = document.querySelectorAll(".container div div");
-// pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
-
-container.addEventListener("mouseenter", changeBackgroundColor);
-
-function changeBackgroundColor(event) {
-    // this function changes the bg color of each cell
-    // it is triggered by hovering the cursor over the cell
-    let target = event.target;
-    target.style = "background-color: black;";
-}
-
 function changeNumberOfPixels(pixelNumber = 16) {
     // this function changes the number of pixels on the etch-a-sketch
-    // the minimum is one and the maximum is 100
+    // the minimum is 1 and the maximum is 100
 
     // remove children
     // replace with new grid
@@ -56,15 +30,29 @@ function changeNumberOfPixels(pixelNumber = 16) {
         
         for (let index = 0; index < pixelNumber; index++) {
             const lineDiv = document.createElement("div");
+            lineDiv.classList.add("pixel");
             columnDiv.appendChild(lineDiv);
         }
     }
-    
-    const pixels = document.querySelectorAll(".container div div");
-    pixels.forEach((pixel) => {pixel.addEventListener("mouseenter", changeBackgroundColor)});
-
+    container.addEventListener("mouseenter", changeBackgroundColor, true);
+    // https://stackoverflow.com/questions/50177348/mouseenter-delegation-using-vanilla-javascript
+    // this way it works on the capturing phase - true as third argument
+    // otherwise the whole container would turn black
+    // does this also work without the .pixel class? since it's on capture, does it start lower?
 }
 
+
+function changeBackgroundColor(event) {
+    // this function changes the bg color of each cell
+    // it is triggered by hovering the cursor over the cell
+    let target = event.target;
+    console.log(target.classList);
+    
+
+    if (target.classList.contains("pixel")) {
+        target.style = "background-color: black;";
+    }
+}
 
 function removeGrid() {
     // the collection of children to remove must first be turned into an array
@@ -74,3 +62,5 @@ function removeGrid() {
     childrenToRemove.forEach((child) => { child.remove() });
 }
 
+
+changeNumberOfPixels();
