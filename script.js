@@ -55,8 +55,10 @@ function changeNumberOfPixels(pixelNumber = 16) {
 
 
 function removeGrid() {
-    container.remove();
-    const container = document.createElement("div");
-    container.classList.add("container");
+    // the collection of children to remove must first be turned into an array
+    // that way I can use the forEach function that allows me to go through any
+    // length of an Array to remove it. yay
+    let childrenToRemove = Array.from(document.querySelector(".container").children);
+    childrenToRemove.forEach((child) => { child.remove() });
 }
 
