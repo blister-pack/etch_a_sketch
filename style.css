@@ -33,10 +33,15 @@ body {
   /* background-color: black; */
 }
 
-button {
+button,
+.changeColor {
   margin: 20px;
   background-color: bisque;
   width: 140px;
   height: 40px;
   font-size: 18px;
+}
+
+.menu {
+  display: flex;
 }

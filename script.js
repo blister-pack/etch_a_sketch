@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
+const colorChange = document.querySelector(".changeColor select");
 
 sizeChangeButton.addEventListener("click", () => {
     removeGrid();
@@ -44,7 +45,7 @@ function changeBackgroundColor(event) {
     // this function changes the bg color of each cell
     // it is triggered by hovering the cursor over the cell
     let target = event.target;
-    console.log(target.classList);
+    // console.log(target.classList);
     
 
     if (target.classList.contains("pixel")) {
@@ -58,6 +59,12 @@ function removeGrid() {
     // length of an Array to remove it. yay
     let childrenToRemove = Array.from(document.querySelector(".container").children);
     childrenToRemove.forEach((child) => { child.remove() });
+}
+
+function getPaintColor() {
+    // this function returns the color to paint the squares in
+    let paintColor = document.querySelector(".changeColor select").value;
+    console.log(paintColor);
 }
 
 
