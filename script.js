@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const sizeChangeButton = document.querySelector("button.sizeChange");
 const colorChange = document.querySelector(".changeColor select");
+let paintColor = "black";
 
 sizeChangeButton.addEventListener("click", () => {
     removeGrid();
@@ -47,9 +48,8 @@ function changeBackgroundColor(event) {
     let target = event.target;
     // console.log(target.classList);
     
-
     if (target.classList.contains("pixel")) {
-        target.style = "background-color: black;";
+        target.style = `background-color: ${paintColor};`;
     }
 }
 
@@ -63,8 +63,7 @@ function removeGrid() {
 
 function getPaintColor() {
     // this function returns the color to paint the squares in
-    let paintColor = document.querySelector(".changeColor select").value;
-    console.log(paintColor);
+    paintColor = document.querySelector(".changeColor select").value;
 }
 
 
