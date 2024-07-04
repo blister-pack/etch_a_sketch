@@ -66,5 +66,4 @@ function getPaintColor() {
     paintColor = document.querySelector(".changeColor select").value;
 }
 
-
 changeNumberOfPixels();
